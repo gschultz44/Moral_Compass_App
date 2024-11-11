@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ScrollView } from 'react-native';
 import axios from 'axios';
+import { OPENAI_API_KEY } from '@env';
 
 const SearchQuestionPage = () => {
     const [question, setQuestion] = useState('');
@@ -24,7 +25,7 @@ const SearchQuestionPage = () => {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer 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`, // Replace with actual API key
+                        'Authorization': `Bearer ${OPENAI_API_KEY}`, // Secure API key access
                     },
                 }
             );
@@ -110,80 +111,79 @@ const SearchQuestionPage = () => {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      padding: 20,
-      backgroundColor: '#f5f5f5',
+        flex: 1,
+        padding: 20,
+        backgroundColor: '#f5f5f5',
     },
     title: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      marginBottom: 20,
+        fontSize: 24,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: 20,
     },
     input: {
-      height: 40,
-      borderColor: '#ccc',
-      borderWidth: 1,
-      borderRadius: 5,
-      paddingHorizontal: 10,
-      marginBottom: 15,
+        height: 40,
+        borderColor: '#ccc',
+        borderWidth: 1,
+        borderRadius: 5,
+        paddingHorizontal: 10,
+        marginBottom: 15,
     },
     button: {
-      backgroundColor: '#6495ed',
-      paddingVertical: 12,
-      paddingHorizontal: 20,
-      borderRadius: 5,
-      alignItems: 'center',
+        backgroundColor: '#6495ed',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        alignItems: 'center',
     },
     backButton: {
-      backgroundColor: '#6495ed',
-      paddingVertical: 12,
-      paddingHorizontal: 20,
-      borderRadius: 5,
-      alignItems: 'center',
-      marginTop: 15,
+        backgroundColor: '#6495ed',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        alignItems: 'center',
+        marginTop: 15,
     },
     ratingPrompt: {
-      fontSize: 16,
-      marginTop: 20,
-      textAlign: 'center',
-      fontWeight: 'bold',
+        fontSize: 16,
+        marginTop: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
     },
     ratingButtons: {
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-      marginTop: 15,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginTop: 15,
     },
     ratingButton: {
-      backgroundColor: '#6495ed',
-      paddingVertical: 12,
-      paddingHorizontal: 20,
-      borderRadius: 5,
-      justifyContent: 'center', // Ensures vertical alignment
-      alignItems: 'center', // Ensures horizontal alignment
-      minWidth: 90, // Ensures a consistent button size
-      height: 50, // Explicit height for proper centering
+        backgroundColor: '#6495ed',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        minWidth: 90,
+        height: 50,
     },
     buttonText: {
-      color: '#fff',
-      fontSize: 16,
-      fontWeight: 'bold',
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
     },
     responseContainer: {
-      marginTop: 20,
-      padding: 10,
-      backgroundColor: '#fff',
-      borderRadius: 5,
+        marginTop: 20,
+        padding: 10,
+        backgroundColor: '#fff',
+        borderRadius: 5,
     },
     responseTitle: {
-      fontSize: 18,
-      fontWeight: 'bold',
+        fontSize: 18,
+        fontWeight: 'bold',
     },
     responseText: {
-      fontSize: 16,
-      marginTop: 10,
+        fontSize: 16,
+        marginTop: 10,
     },
-  });
-  
-  export default SearchQuestionPage;
-  
+});
+
+export default SearchQuestionPage;
